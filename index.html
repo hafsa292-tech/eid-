@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Secret Eid Surprise</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            height:100vh;
+            overflow:hidden;
+            font-family:Arial, sans-serif;
+            background:black;
+            color:white;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            flex-direction:column;
+            text-align:center;
+        }
+
+        /* Intro Screen */
+
+        #intro{
+            position:absolute;
+            width:100%;
+            height:100%;
+            background:black;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            flex-direction:column;
+            z-index:10;
+        }
+
+        #intro h1{
+            font-size:45px;
+            color:red;
+            text-shadow:0 0 20px red;
+            animation: blink 1s infinite;
+        }
+
+        #intro p{
+            margin-top:20px;
+            font-size:24px;
+            color:#ccc;
+        }
+
+        @keyframes blink{
+            50%{
+                opacity:0.5;
+            }
+        }
+
+        /* Main Area */
+
+        #mainContent{
+            display:none;
+        }
+
+        .moon{
+            position:absolute;
+            top:30px;
+            right:40px;
+            font-size:80px;
+            animation: float 3s infinite ease-in-out;
+        }
+
+        @keyframes float{
+            50%{
+                transform:translateY(-10px);
+            }
+        }
+
+        /* Stars */
+
+        .star{
+            position:absolute;
+            color:white;
+            animation: twinkle 2s infinite;
+        }
+
+        @keyframes twinkle{
+            50%{
+                opacity:0.3;
+            }
+        }
+
+        /* Gift */
+
+        #gift{
+            font-size:140px;
+            cursor:pointer;
+            animation:bounce 1s infinite alternate;
+            filter:drop-shadow(0 0 25px gold);
+            transition:0.5s;
+        }
+
+        #gift:hover{
+            transform:scale(1.1) rotate(5deg);
+        }
+
+        @keyframes bounce{
+
+            from{
+                transform:translateY(0);
+            }
+
+            to{
+                transform:translateY(-20px);
+            }
+        }
+
+        #tap{
+            margin-top:20px;
+            color:gold;
+            font-size:30px;
+            animation: blink 1s infinite;
+        }
+
+        /* Card */
+
+        #card{
+            display:none;
+            width:90%;
+            max-width:700px;
+            background:rgba(255,255,255,0.08);
+            padding:40px;
+            border-radius:30px;
+            backdrop-filter:blur(15px);
+            box-shadow:0 0 40px rgba(255,255,255,0.2);
+            animation: popup 1s ease;
+        }
+
+        @keyframes popup{
+
+            from{
+                transform:scale(0);
+                opacity:0;
+            }
+
+            to{
+                transform:scale(1);
+                opacity:1;
+            }
+        }
+
+        #card h1{
+            color:gold;
+            font-size:55px;
+            margin-bottom:20px;
+            text-shadow:0 0 20px gold;
+        }
+
+        #card h2{
+            color:#8cff8c;
+            font-size:42px;
+            margin-bottom:25px;
+        }
+
+        #typing{
+            font-size:25px;
+            line-height:42px;
+            min-height:150px;
+        }
+
+        /* Secret Button */
+
+        #secretBtn{
+            margin-top:25px;
+            padding:15px 35px;
+            border:none;
+            border-radius:15px;
+            font-size:22px;
+            background:gold;
+            cursor:pointer;
+            transition:0.5s;
+            font-weight:bold;
+        }
+
+        #secretBtn:hover{
+            transform:scale(1.1);
+        }
+
+        /* Final Surprise */
+
+        #final{
+            display:none;
+            margin-top:30px;
+            font-size:32px;
+            color:pink;
+            animation: glow 1s infinite alternate;
+        }
+
+        @keyframes glow{
+
+            from{
+                text-shadow:0 0 10px pink;
+            }
+
+            to{
+                text-shadow:0 0 30px white;
+            }
+        }
+
+        /* Fireworks */
+
+        .firework{
+            position:absolute;
+            font-size:35px;
+            animation: explode 2s linear infinite;
+        }
+
+        @keyframes explode{
+
+            0%{
+                transform:scale(0);
+                opacity:1;
+            }
+
+            100%{
+                transform:scale(2);
+                opacity:0;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Intro -->
+
+    <div id="intro">
+
+        <h1>
+            ACCESSING SECRET EID MESSAGE...
+        </h1>
+
+        <p>
+            A Special Surprise Is Waiting For Jawad 🎁
+        </p>
+
+    </div>
+
+    <!-- Main Content -->
+
+    <div id="mainContent">
+
+        <!-- Moon -->
+        <div class="moon">🌙</div>
+
+        <!-- Stars -->
+        <div class="star" style="top:10%; left:15%;">✨</div>
+        <div class="star" style="top:20%; left:80%;">✨</div>
+        <div class="star" style="top:50%; left:10%;">✨</div>
+        <div class="star" style="top:70%; left:70%;">✨</div>
+        <div class="star" style="top:35%; left:90%;">✨</div>
+
+        <!-- Fireworks -->
+        <div class="firework" style="top:20%; left:20%;">🎆</div>
+        <div class="firework" style="top:30%; left:75%; animation-delay:1s;">🎇</div>
+        <div class="firework" style="top:70%; left:40%; animation-delay:2s;">✨</div>
+
+        <!-- Gift -->
+
+        <div id="gift" onclick="openGift()">
+            🎁
+        </div>
+
+        <h2 id="tap">
+            Touch To Unlock Surprise ✨
+        </h2>
+
+        <!-- Card -->
+
+        <div id="card">
+
+            <h1>
+                🌙 Eid-ul-Adha Mubarak 🌙
+            </h1>
+
+            <h2>
+                Dear Jawad 💖
+            </h2>
+
+            <p id="typing"></p>
+
+            <button id="secretBtn" onclick="finalSurprise()">
+                Unlock Final Surprise 🎉
+            </button>
+
+            <div id="final">
+                🐐 You Are One Of The Most Special People Ever ✨
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        // Intro Screen Delay
+
+        setTimeout(function(){
+
+            document.getElementById("intro").style.display = "none";
+
+            document.getElementById("mainContent").style.display = "block";
+
+        },3000);
+
+        // Open Gift
+
+        function openGift(){
+
+            document.getElementById("gift").style.display = "none";
+
+            document.getElementById("tap").style.display = "none";
+
+            document.getElementById("card").style.display = "block";
+
+            typeEffect();
+        }
+
+        // Typing Animation
+
+        let text = "May Allah bless your life with happiness, peace, success and endless smiles. May every dream of yours come true on this beautiful Eid ✨";
+
+        let i = 0;
+
+        function typeEffect(){
+
+            if(i < text.length){
+
+                document.getElementById("typing").innerHTML += text.charAt(i);
+
+                i++;
+
+                setTimeout(typeEffect , 45);
+            }
+        }
+
+        // Final Surprise
+
+        function finalSurprise(){
+
+            document.getElementById("final").style.display = "block";
+
+            alert("🎉 Secret Eid Surprise Unlocked For Jawad 💖");
+        }
+
+    </script>
+
+</body>
+</html>
