@@ -2,380 +2,248 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Secret Eid Surprise</title>
-    <head>
+<title>Secret Eid Surprise</title>
 
-    <title>Secret Eid Surprise</title>
+<!-- Google Analytics (SAFE - DO NOT TOUCH) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8YTTWBYQ3H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8YTTWBYQ3H');
+</script>
 
-    <!-- 👇 YAHAN PASTE KARNA HAI -->
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8YTTWBYQ3H"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+<style>
 
-      gtag('config', 'G-8YTTWBYQ3H');
-    </script>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
 
-    <style>
+/* 🌑 CINEMATIC BACKGROUND */
+body{
+    height:100vh;
+    overflow-y:auto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    color:white;
+    background:black;
+}
 
-    <style>
+/* 🌑 INTRO */
+#intro{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    z-index:10;
+}
 
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-        }
+#intro h1{
+    font-size:32px;
+    color:#ff3b3b;
+    text-shadow:0 0 15px red;
+    animation: blink 1.2s infinite;
+}
 
-        body{
-            height:100vh;
-            overflow:hidden;
-            font-family:Arial, sans-serif;
-            background:black;
-            color:white;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            flex-direction:column;
-            text-align:center;
-        }
+#intro p{
+    margin-top:15px;
+    font-size:18px;
+    color:#aaa;
+}
 
-        /* Intro Screen */
+@keyframes blink{50%{opacity:0.5;}}
 
-        #intro{
-            position:absolute;
-            width:100%;
-            height:100%;
-            background:black;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            flex-direction:column;
-            z-index:10;
-        }
+/* 🌙 MAIN */
+#mainContent{display:none;}
 
-        #intro h1{
-            font-size:45px;
-            color:red;
-            text-shadow:0 0 20px red;
-            animation: blink 1s infinite;
-        }
+.moon{
+    position:absolute;
+    top:20px;
+    right:20px;
+    font-size:60px;
+    animation: float 3s infinite ease-in-out;
+}
 
-        #intro p{
-            margin-top:20px;
-            font-size:24px;
-            color:#ccc;
-        }
+@keyframes float{
+    50%{transform:translateY(-10px);}
+}
 
-        @keyframes blink{
-            50%{
-                opacity:0.5;
-            }
-        }
+/* 🎁 GIFT */
+#gift{
+    font-size:120px;
+    cursor:pointer;
+    animation:bounce 1s infinite alternate;
+    filter:drop-shadow(0 0 18px gold);
+}
 
-        /* Main Area */
+@keyframes bounce{
+    from{transform:translateY(0);}
+    to{transform:translateY(-15px);}
+}
 
-        #mainContent{
-            display:none;
-        }
+/* 💬 TAP TEXT */
+#tap{
+    margin-top:15px;
+    font-size:20px;
+    color:gold;
+    animation: blink 1.5s infinite;
+}
 
-        .moon{
-            position:absolute;
-            top:30px;
-            right:40px;
-            font-size:80px;
-            animation: float 3s infinite ease-in-out;
-        }
+/* 💎 CARD */
+#card{
+    display:none;
+    width:90%;
+    max-width:600px;
+    padding:30px;
+    border-radius:18px;
 
-        @keyframes float{
-            50%{
-                transform:translateY(-10px);
-            }
-        }
+    background:rgba(255,255,255,0.06);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,0.15);
+    box-shadow:0 0 25px rgba(0,0,0,0.8);
+    animation: pop 0.8s ease;
+}
 
-        /* Stars */
+@keyframes pop{
+    from{transform:scale(0.8);opacity:0;}
+    to{transform:scale(1);opacity:1;}
+}
 
-        .star{
-            position:absolute;
-            color:white;
-            animation: twinkle 2s infinite;
-        }
+#card h1{
+    color:gold;
+    font-size:38px;
+}
 
-        @keyframes twinkle{
-            50%{
-                opacity:0.3;
-            }
-        }
+#card h2{
+    color:#8cff8c;
+    margin-top:10px;
+    font-size:24px;
+}
 
-        /* Gift */
+/* ✍️ typing */
+#typing{
+    margin-top:20px;
+    font-size:18px;
+    min-height:80px;
+    line-height:26px;
+}
 
-        #gift{
-            font-size:140px;
-            cursor:pointer;
-            animation:bounce 1s infinite alternate;
-            filter:drop-shadow(0 0 25px gold);
-            transition:0.5s;
-        }
+/* 🔘 BUTTON */
+#secretBtn{
+    margin-top:20px;
+    padding:12px 25px;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    background:gold;
+    transition:0.3s;
+}
 
-        #gift:hover{
-            transform:scale(1.1) rotate(5deg);
-        }
+#secretBtn:hover{
+    transform:scale(1.08);
+}
 
-        @keyframes bounce{
+/* 💖 FINAL */
+#final{
+    display:none;
+    margin-top:20px;
+    font-size:20px;
+    color:#ffb6ff;
+    animation: glow 1.5s infinite alternate;
+}
 
-            from{
-                transform:translateY(0);
-            }
+@keyframes glow{
+    from{text-shadow:0 0 10px pink;}
+    to{text-shadow:0 0 25px white;}
+}
 
-            to{
-                transform:translateY(-20px);
-            }
-        }
-
-        #tap{
-            margin-top:20px;
-            color:gold;
-            font-size:30px;
-            animation: blink 1s infinite;
-        }
-
-        /* Card */
-
-        #card{
-            display:none;
-            width:90%;
-            max-width:700px;
-            background:rgba(255,255,255,0.08);
-            padding:40px;
-            border-radius:30px;
-            backdrop-filter:blur(15px);
-            box-shadow:0 0 40px rgba(255,255,255,0.2);
-            animation: popup 1s ease;
-        }
-
-        @keyframes popup{
-
-            from{
-                transform:scale(0);
-                opacity:0;
-            }
-
-            to{
-                transform:scale(1);
-                opacity:1;
-            }
-        }
-
-        #card h1{
-            color:gold;
-            font-size:55px;
-            margin-bottom:20px;
-            text-shadow:0 0 20px gold;
-        }
-
-        #card h2{
-            color:#8cff8c;
-            font-size:42px;
-            margin-bottom:25px;
-        }
-
-        #typing{
-            font-size:25px;
-            line-height:42px;
-            min-height:150px;
-        }
-
-        /* Secret Button */
-
-        #secretBtn{
-            margin-top:25px;
-            padding:15px 35px;
-            border:none;
-            border-radius:15px;
-            font-size:22px;
-            background:gold;
-            cursor:pointer;
-            transition:0.5s;
-            font-weight:bold;
-        }
-
-        #secretBtn:hover{
-            transform:scale(1.1);
-        }
-
-        /* Final Surprise */
-
-        #final{
-            display:none;
-            margin-top:30px;
-            font-size:32px;
-            color:pink;
-            animation: glow 1s infinite alternate;
-        }
-
-        @keyframes glow{
-
-            from{
-                text-shadow:0 0 10px pink;
-            }
-
-            to{
-                text-shadow:0 0 30px white;
-            }
-        }
-
-        /* Fireworks */
-
-        .firework{
-            position:absolute;
-            font-size:35px;
-            animation: explode 2s linear infinite;
-        }
-
-        @keyframes explode{
-
-            0%{
-                transform:scale(0);
-                opacity:1;
-            }
-
-            100%{
-                transform:scale(2);
-                opacity:0;
-            }
-        }
-
-    </style>
+</style>
 </head>
 
 <body>
 
-    <!-- Intro -->
+<!-- 🌑 INTRO -->
+<div id="intro">
+    <h1>ACCESSING SECRET MESSAGE...</h1>
+    <p>A hidden Eid surprise is waiting for someone special 🎁</p>
+</div>
 
-    <div id="intro">
+<!-- 🌙 MAIN -->
+<div id="mainContent">
 
-        <h1>
-            ACCESSING SECRET EID MESSAGE...
-        </h1>
+<div class="moon">🌙</div>
 
-        <p>
-            A Special Surprise Is Waiting For Jawad 🎁
-        </p>
+<!-- 🎁 GIFT -->
+<div id="gift" onclick="openGift()">🎁</div>
 
+<h2 id="tap">Please smile 😊 & tap to unlock the surprise ✨</h2>
+
+<!-- 💎 CARD -->
+<div id="card">
+
+    <h1>🌙 Eid Mubarak 🌙</h1>
+    <h2>Dear Jawad 🤍</h2>
+
+    <p id="typing"></p>
+
+    <button id="secretBtn" onclick="finalSurprise()">
+        Unlock Final Surprise 🎉
+    </button>
+
+    <div id="final">
+        A small Eid moment from Hafsa… hope it made you smile 🌙✨
     </div>
 
-    <!-- Main Content -->
+</div>
 
-    <div id="mainContent">
+</div>
 
-        <!-- Moon -->
-        <div class="moon">🌙</div>
+<script>
 
-        <!-- Stars -->
-        <div class="star" style="top:10%; left:15%;">✨</div>
-        <div class="star" style="top:20%; left:80%;">✨</div>
-        <div class="star" style="top:50%; left:10%;">✨</div>
-        <div class="star" style="top:70%; left:70%;">✨</div>
-        <div class="star" style="top:35%; left:90%;">✨</div>
+setTimeout(()=>{
+    document.getElementById("intro").style.display="none";
+    document.getElementById("mainContent").style.display="flex";
+},3000);
 
-        <!-- Fireworks -->
-        <div class="firework" style="top:20%; left:20%;">🎆</div>
-        <div class="firework" style="top:30%; left:75%; animation-delay:1s;">🎇</div>
-        <div class="firework" style="top:70%; left:40%; animation-delay:2s;">✨</div>
+function openGift(){
+    document.getElementById("gift").style.display="none";
+    document.getElementById("tap").style.display="none";
+    document.getElementById("card").style.display="block";
+    typeEffect();
+}
 
-        <!-- Gift -->
+let text="On this special Eid, may your life be filled with peace, success, and endless quiet happiness ✨";
+let i=0;
 
-        <div id="gift" onclick="openGift()">
-            🎁
-        </div>
+function typeEffect(){
+    if(i<text.length){
+        document.getElementById("typing").innerHTML+=text[i];
+        i++;
+        setTimeout(typeEffect,45);
+    }
+}
 
-        <h2 id="tap">
-           Please Smile and Touch To Unlock Surprise ✨
-        </h2>
+function finalSurprise(){
+    document.getElementById("final").style.display="block";
+    alert("🎉 Surprise Unlocked 💖");
+}
 
-        <!-- Card -->
-
-        <div id="card">
-
-            <h1>
-                🌙 Eid-ul-Adha Mubarak 🌙
-            </h1>
-
-            <h2>
-                Dear Jawad 😊
-            </h2>
-
-            <p id="typing"></p>
-
-            <button id="secretBtn" onclick="finalSurprise()">
-                Unlock Final Surprise 🎉
-            </button>
-
-            <div id="final">
-              💫 A tiny surprise from Hafsa… Did you like it? 🌸
-            </div>
-
-        </div>
-
-    </div>
-
-    <script>
-
-        // Intro Screen Delay
-
-        setTimeout(function(){
-
-            document.getElementById("intro").style.display = "none";
-
-            document.getElementById("mainContent").style.display = "block";
-
-        },3000);
-
-        // Open Gift
-
-        function openGift(){
-
-            document.getElementById("gift").style.display = "none";
-
-            document.getElementById("tap").style.display = "none";
-
-            document.getElementById("card").style.display = "block";
-
-            typeEffect();
-        }
-
-        // Typing Animation
-
-        let text = "May Allah bless your life with happiness, peace, success and endless smiles.✨";
-
-        let i = 0;
-
-        function typeEffect(){
-
-            if(i < text.length){
-
-                document.getElementById("typing").innerHTML += text.charAt(i);
-
-                i++;
-
-                setTimeout(typeEffect , 45);
-            }
-        }
-
-        // Final Surprise
-
-        function finalSurprise(){
-
-            document.getElementById("final").style.display = "block";
-
-            alert("🎉 Secret Eid Surprise Unlocked For Jawad 💖");
-        }
-
-    </script>
+</script>
 
 </body>
 </html>
