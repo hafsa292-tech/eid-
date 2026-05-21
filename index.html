@@ -121,13 +121,8 @@ body{
 }
 
 @keyframes bounce{
-    from{
-        transform:translateY(0);
-    }
-
-    to{
-        transform:translateY(-15px);
-    }
+    from{transform:translateY(0);}
+    to{transform:translateY(-15px);}
 }
 
 /* SUSPENSE TEXT */
@@ -168,16 +163,8 @@ body{
 }
 
 @keyframes reveal{
-
-    0%{
-        transform:scale(0.7);
-        opacity:0;
-    }
-
-    100%{
-        transform:scale(1);
-        opacity:1;
-    }
+    0%{transform:scale(0.7);opacity:0;}
+    100%{transform:scale(1);opacity:1;}
 }
 
 #card h1{
@@ -202,11 +189,10 @@ body{
     color:#ddd;
 }
 
-/* BUTTON */
+/* BUTTON (UPDATED) */
 
 #secretBtn{
-    margin-top:25px;
-
+    margin-top:10px;   /* 🔥 moved up */
     padding:14px 30px;
 
     border:none;
@@ -245,14 +231,8 @@ body{
 }
 
 @keyframes finalGlow{
-
-    from{
-        text-shadow:0 0 10px #ffb6ff;
-    }
-
-    to{
-        text-shadow:0 0 30px white;
-    }
+    from{ text-shadow:0 0 10px #ffb6ff; }
+    to{ text-shadow:0 0 30px white; }
 }
 
 </style>
@@ -260,39 +240,22 @@ body{
 
 <body>
 
-<!-- INTRO -->
-
 <div id="intro">
-
-    <h1>
-        ACCESSING PRIVATE MESSAGE...
-    </h1>
-
-    <p>
-        Authorized access detected...
-    </p>
-
+    <h1>ACCESSING PRIVATE MESSAGE...</h1>
+    <p>Authorized access detected...</p>
 </div>
-
-<!-- MAIN -->
 
 <div id="mainContent">
 
-    <!-- moon -->
     <div class="moon">🌙</div>
 
-    <!-- stars -->
     <div class="star" style="top:10%; left:15%;">✨</div>
     <div class="star" style="top:25%; left:80%;">✦</div>
     <div class="star" style="top:60%; left:20%;">✨</div>
     <div class="star" style="top:75%; left:70%;">✦</div>
 
-    <!-- gift -->
-    <div id="gift" onclick="openGift()">
-        🎁
-    </div>
+    <div id="gift" onclick="openGift()">🎁</div>
 
-    <!-- suspense text -->
     <div id="beforeText">
         Jawad… someone left a hidden Eid surprise for you 🎁
     </div>
@@ -301,17 +264,11 @@ body{
         Tap carefully... the surprise will unlock only once 👀
     </div>
 
-    <!-- card -->
-
     <div id="card">
 
-        <h1>
-            🌙 Eid-ul-Adha Mubarak 🌙
-        </h1>
+        <h1>🌙 Eid-ul-Adha Mubarak 🌙</h1>
 
-        <h2>
-            Jawad...
-        </h2>
+        <h2>Jawad...</h2>
 
         <p id="typing"></p>
 
@@ -320,7 +277,7 @@ body{
         </button>
 
         <div id="final">
-            Not every surprise is loud… some are hidden quietly inside small moments 🌙
+            A small Eid surprise... just to make you smile 😊✨
         </div>
 
     </div>
@@ -329,17 +286,10 @@ body{
 
 <script>
 
-/* INTRO DELAY */
-
-setTimeout(function(){
-
+setTimeout(()=>{
     document.getElementById("intro").style.display="none";
-
     document.getElementById("mainContent").style.display="flex";
-
 },3000);
-
-/* OPEN GIFT */
 
 function openGift(){
 
@@ -350,38 +300,24 @@ function openGift(){
     document.getElementById("tap").style.display="none";
 
     setTimeout(()=>{
-
         document.getElementById("card").style.display="block";
-
         typeEffect();
-
     },400);
 }
 
-/* TYPING EFFECT */
-
-let text="Maybe this Eid is just another day for everyone else... but someone wanted to make your smile a little more special tonight ✨";
-
+let text="A small Eid surprise... just to make you smile 😊✨";
 let i=0;
 
 function typeEffect(){
-
     if(i < text.length){
-
         document.getElementById("typing").innerHTML += text.charAt(i);
-
         i++;
-
         setTimeout(typeEffect,45);
     }
 }
 
-/* FINAL */
-
 function finalSurprise(){
-
     document.getElementById("final").style.display="block";
-
     alert("🌙 Final message unlocked...");
 }
 
